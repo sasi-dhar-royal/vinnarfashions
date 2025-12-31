@@ -90,31 +90,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // WhatsApp Number & Message Formatting
             const targetPhoneNumber = "917799302224"; // India prefix + number
-            const whatsappMsg = `*Vinnar Institute - New Admission Application*%0A%0A` +
-                `*--- Student Details ---*%0A` +
-                `*Name:* ${name}%0A` +
-                `*Gender:* ${gender}%0A` +
-                `*DOB:* ${dob}%0A` +
-                `*Filled at Vinnar:* ${currentStatus}%0A` +
-                `*Interest:* ${course}%0A%0A` +
-                `*--- Family & Background ---*%0A` +
-                `*Father:* ${father}%0A` +
-                `*Mother:* ${mother}%0A` +
-                `*Occupation:* ${occupation}%0A` +
-                `*Annual Income:* ${income}%0A%0A` +
-                `*--- Academic Info ---*%0A` +
-                `*Qualification:* ${edu}%0A` +
-                `*Last Studied:* ${lastStudied}%0A%0A` +
-                `*--- Contact Info ---*%0A` +
-                `*Student Phone:* ${studentPhone}%0A` +
-                `*Parent Phone:* ${parentPhone}%0A` +
-                `*Address:* ${address}%0A%0A` +
-                `*--- Referral & Note ---*%0A` +
-                `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}%0A` +
+            const whatsappMsg = `*Vinnar Institute - New Admission Application*\n\n` +
+                `*--- Student Details ---*\n` +
+                `*Name:* ${name}\n` +
+                `*Gender:* ${gender}\n` +
+                `*DOB:* ${dob}\n` +
+                `*Filled at Vinnar:* ${currentStatus}\n` +
+                `*Interest:* ${course}\n\n` +
+                `*--- Family & Background ---*\n` +
+                `*Father:* ${father}\n` +
+                `*Mother:* ${mother}\n` +
+                `*Occupation:* ${occupation}\n` +
+                `*Annual Income:* ${income}\n\n` +
+                `*--- Academic Info ---*\n` +
+                `*Qualification:* ${edu}\n` +
+                `*Last Studied:* ${lastStudied}\n\n` +
+                `*--- Contact Info ---*\n` +
+                `*Student Phone:* ${studentPhone}\n` +
+                `*Parent Phone:* ${parentPhone}\n` +
+                `*Address:* ${address}\n\n` +
+                `*--- Referral & Note ---*\n` +
+                `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}\n` +
                 `*Note:* ${personalMsg}`;
 
-            // Redirect to WhatsApp (using location.href for better popup blocker compatibility)
-            window.location.href = `https://wa.me/${targetPhoneNumber}?text=${whatsappMsg}`;
+            // Redirect to WhatsApp (using encodeURIComponent for full message reliability)
+            const finalUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(whatsappMsg)}`;
+            window.location.href = finalUrl;
 
             // Optional: Reset form
             enrollmentForm.reset();
