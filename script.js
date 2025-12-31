@@ -79,7 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const studentPhone = document.getElementById('formPhone').value;
             const parentPhone = document.getElementById('formParentPhone').value || 'N/A';
 
-            // Get Referral
+            // Get Status & Referral
+            const statusEl = document.querySelector('input[name="currentStatus"]:checked');
+            const currentStatus = statusEl ? statusEl.value : 'New';
+
             const referralEl = document.querySelector('input[name="referral"]:checked');
             const referral = referralEl ? referralEl.value : 'Not specified';
             const refDetail = document.getElementById('refDetail').value || '';
@@ -92,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `*Name:* ${name}%0A` +
                 `*Gender:* ${gender}%0A` +
                 `*DOB:* ${dob}%0A` +
+                `*Currently at Vinnar:* ${currentStatus}%0A` +
                 `*Interest:* ${course}%0A%0A` +
                 `*--- Family & Background ---*%0A` +
                 `*Father:* ${father}%0A` +
