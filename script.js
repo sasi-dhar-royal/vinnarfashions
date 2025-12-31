@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `*Name:* ${name}%0A` +
                 `*Gender:* ${gender}%0A` +
                 `*DOB:* ${dob}%0A` +
-                `*Currently at Vinnar:* ${currentStatus}%0A` +
+                `*Filled at Vinnar:* ${currentStatus}%0A` +
                 `*Interest:* ${course}%0A%0A` +
                 `*--- Family & Background ---*%0A` +
                 `*Father:* ${father}%0A` +
