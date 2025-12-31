@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Get form values
             const name = document.getElementById('formName').value;
-            const gender = document.getElementById('formGender').value;
             const dob = document.getElementById('formDOB').value;
             const father = document.getElementById('formFather').value;
             const mother = document.getElementById('formMother').value || 'N/A';
@@ -93,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const whatsappMsg = `*Vinnar Institute - New Admission Application*\n\n` +
                 `*--- Student Details ---*\n` +
                 `*Name:* ${name}\n` +
-                `*Gender:* ${gender}\n` +
                 `*DOB:* ${dob}\n` +
                 `*Filled at Vinnar:* ${currentStatus}\n` +
                 `*Interest:* ${course}\n\n` +
