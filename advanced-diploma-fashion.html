@@ -85,6 +85,19 @@
             margin: 60px 0;
             opacity: 0.3;
         }
+
+        .year-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.05);
+            font-family: var(--font-heading);
+            z-index: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -136,11 +149,12 @@
     <!-- Phase 1: Year 1 Curriculum -->
     <section class="py-huge bg-cream">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <div class="text-gold fw-bold text-uppercase ls-wide mb-2">Year 01 Syllabus</div>
-                    <h2 class="section-title">Foundation & <i>Techniques</i></h2>
-                    <p class="text-muted">Mastering the essentials of fashion, tailoring, and digital design</p>
+            <div class="row text-center mb-5 position-relative">
+                <div class="col-12 py-4">
+                    <div class="year-watermark">01</div>
+                    <div class="text-gold fw-bold text-uppercase ls-wide mb-2">Academic Journey</div>
+                    <h2 class="section-title">Year 01 <i>Syllabus</i></h2>
+                    <p class="text-muted">Building the creative foundation and mastering essential techniques</p>
                     <div class="title-underline mx-auto"></div>
                 </div>
             </div>
@@ -199,11 +213,12 @@
             <!-- Phase 2: Year 2 Curriculum -->
             <div class="section-divider"></div>
 
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <div class="text-gold fw-bold text-uppercase ls-wide mb-2">Year 02 Syllabus</div>
-                    <h2 class="section-title">Professional <i>Specialization</i></h2>
-                    <p class="text-muted">Advanced tailoring, men's wear, bridal beauty, and industry theory</p>
+            <div class="row text-center mb-5 position-relative">
+                <div class="col-12 py-4">
+                    <div class="year-watermark">02</div>
+                    <div class="text-gold fw-bold text-uppercase ls-wide mb-2">Professional Mastery</div>
+                    <h2 class="section-title">Year 02 <i>Syllabus</i></h2>
+                    <p class="text-muted">Advanced specialization, men's wear, and industry readiness</p>
                     <div class="title-underline mx-auto"></div>
                 </div>
             </div>

@@ -62,6 +62,19 @@
             position: relative;
             overflow: hidden;
         }
+
+        .year-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.05);
+            font-family: var(--font-heading);
+            z-index: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -114,11 +127,12 @@
     <!-- Syllabus Content -->
     <section class="py-huge bg-cream">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="section-title">Course <i>Syllabus</i></h2>
-                    <p class="text-muted">Master the art and science of fashion through our 5-module comprehensive
-                        curriculum</p>
+            <div class="row text-center mb-5 position-relative">
+                <div class="col-12 py-4">
+                    <div class="year-watermark">01</div>
+                    <div class="text-gold fw-bold text-uppercase ls-wide mb-2">Academic Journey</div>
+                    <h2 class="section-title">Year 01 <i>Syllabus</i></h2>
+                    <p class="text-muted">Master the art and science of fashion through our comprehensive curriculum</p>
                     <div class="title-underline mx-auto"></div>
                 </div>
             </div>
@@ -133,15 +147,20 @@
                             figures and garments.</div>
                         <ul class="list-unstyled text-muted small">
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Basics:</strong> Shading, 2D/3D Forms, Value & Pointing</li>
+                                <strong>Basics:</strong> Shading, 2D/3D Forms, Value & Pointing
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Theory:</strong> Color Wheel, Tints/Tones, Schemes</li>
+                                <strong>Theory:</strong> Color Wheel, Tints/Tones, Schemes
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Principles:</strong> Rendering strokes, Motifs, Repeats</li>
+                                <strong>Principles:</strong> Rendering strokes, Motifs, Repeats
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Croquis:</strong> 10-Head Figure, Flesh figure, Poses</li>
+                                <strong>Croquis:</strong> 10-Head Figure, Flesh figure, Poses
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Categories:</strong> Casual, Formal, Ethnic, Beach wear</li>
+                                <strong>Categories:</strong> Casual, Formal, Ethnic, Beach wear
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -187,13 +206,16 @@
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i> <strong>Basic
                                     Stitches:</strong> Stem, Chain, Satin, Split</li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Advanced:</strong> Zardosi, French Knots, Woven Rose</li>
+                                <strong>Advanced:</strong> Zardosi, French Knots, Woven Rose
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i> <strong>Aari
                                     Work:</strong> Specialized stitching techniques</li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Hairstyles:</strong> French Braid, Buns, Free styles</li>
+                                <strong>Hairstyles:</strong> French Braid, Buns, Free styles
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Art:</strong> Smocking, Appliqué, Calendar Art</li>
+                                <strong>Art:</strong> Smocking, Appliqué, Calendar Art
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -205,15 +227,19 @@
                         <h4 class="text-gold mb-3">Professional Beautician</h4>
                         <ul class="list-unstyled text-muted small">
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Grooming:</strong> High-end Threading, Facial</li>
+                                <strong>Grooming:</strong> High-end Threading, Facial
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Makeup:</strong> Daily & Occasional Make-up Art</li>
+                                <strong>Makeup:</strong> Daily & Occasional Make-up Art
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Saree:</strong> Draping (2 styles) & Pre-pleating</li>
+                                <strong>Saree:</strong> Draping (2 styles) & Pre-pleating
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i> <strong>Henna
                                     Art:</strong> Professional Mehandi Designs</li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Crafts:</strong> Professional Flower making</li>
+                                <strong>Crafts:</strong> Professional Flower making
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -225,15 +251,20 @@
                         <h4 class="text-gold mb-3">Digital Fashion (AI)</h4>
                         <ul class="list-unstyled text-muted small">
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Digital:</strong> Intro to Adobe Illustrator tools</li>
+                                <strong>Digital:</strong> Intro to Adobe Illustrator tools
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Repeats:</strong> Brick, Ogee, Tossed patterns</li>
+                                <strong>Repeats:</strong> Brick, Ogee, Tossed patterns
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Projects:</strong> Flat sketches, Trouser, Blazers</li>
+                                <strong>Projects:</strong> Flat sketches, Trouser, Blazers
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Boutique:</strong> Logo, Business card, Spec-sheets</li>
+                                <strong>Boutique:</strong> Logo, Business card, Spec-sheets
+                            </li>
                             <li class="mb-2"><i class="fas fa-check-circle text-gold me-2 small"></i>
-                                <strong>Effects:</strong> Pearl/Sequence Jewelry rendering</li>
+                                <strong>Effects:</strong> Pearl/Sequence Jewelry rendering
+                            </li>
                         </ul>
                     </div>
                 </div>
