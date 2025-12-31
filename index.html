@@ -510,46 +510,154 @@
                 <div class="col-lg-7">
                     <div class="contact-form-card shadow-lg p-5 bg-white rounded-4">
                         <form id="enrollmentForm">
-                            <div class="row g-4">
+                            <div class="row g-3">
+                                <!-- Student Personal Info -->
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="small text-gold text-uppercase fw-bold mb-2">Full Name</label>
-                                        <input type="text" id="formName" class="form-control custom-input"
-                                            placeholder="Enter your name" required>
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Student Name</label>
+                                        <input type="text" id="formName" class="form-control custom-input py-2"
+                                            placeholder="Full Name" required>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="small text-gold text-uppercase fw-bold mb-2">Phone Number</label>
-                                        <input type="tel" id="formPhone" class="form-control custom-input"
-                                            placeholder="Enter your phone number" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="small text-gold text-uppercase fw-bold mb-2">Select Your
-                                            Course</label>
-                                        <select id="formCourse" class="form-select custom-input" required>
-                                            <option value="" disabled selected>Choose a program...</option>
-                                            <option value="adv-fashion">Advanced Diploma in Fashion Technology (2 Years)
-                                            </option>
-                                            <option value="fashion">Diploma in Fashion Technology (1 Year)</option>
-                                            <option value="beautician">Diploma in Beautician (6 Months)</option>
-                                            <option value="tailoring">Diploma in Tailoring (3 Months)</option>
+                                <div class="col-md-3">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Gender</label>
+                                        <select id="formGender" class="form-select custom-input py-2" required>
+                                            <option value="" disabled selected>Select</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="small text-gold text-uppercase fw-bold mb-2">Your Message</label>
-                                        <textarea id="formMessage" class="form-control custom-input" rows="4"
-                                            placeholder="Tell us about your interests..."></textarea>
+                                <div class="col-md-3">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Date of Birth</label>
+                                        <input type="date" id="formDOB" class="form-control custom-input py-2" required>
                                     </div>
                                 </div>
+
+                                <!-- Parental Info -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Father/Guardian
+                                            Name</label>
+                                        <input type="text" id="formFather" class="form-control custom-input py-2"
+                                            placeholder="Father's Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Mother Name</label>
+                                        <input type="text" id="formMother" class="form-control custom-input py-2"
+                                            placeholder="Mother's Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Occupation</label>
+                                        <input type="text" id="formOccupation" class="form-control custom-input py-2"
+                                            placeholder="Parent's Occupation">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Annual Income</label>
+                                        <input type="text" id="formIncome" class="form-control custom-input py-2"
+                                            placeholder="Approx Annual Income">
+                                    </div>
+                                </div>
+
+                                <!-- Academic Info -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Interest
+                                            Course</label>
+                                        <select id="formCourse" class="form-select custom-input py-2" required>
+                                            <option value="" disabled selected>Choosing a program...</option>
+                                            <option value="Advanced Diploma (2 Yrs)">Advanced Diploma (2 Years)</option>
+                                            <option value="Diploma Fashion (1 Yr)">Diploma in Fashion (1 Year)</option>
+                                            <option value="Diploma Beautician (6 Mos)">Diploma in Beautician (6 Months)
+                                            </option>
+                                            <option value="Diploma Tailoring (3 Mos)">Diploma in Tailoring (3 Months)
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Edu
+                                            Qualification</label>
+                                        <input type="text" id="formEdu" class="form-control custom-input py-2"
+                                            placeholder="E.g. Intermediate, Degree">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Last Studied &
+                                            Place</label>
+                                        <input type="text" id="formLastStudied" class="form-control custom-input py-2"
+                                            placeholder="School/College Name & Place">
+                                    </div>
+                                </div>
+
+                                <!-- Contact Info -->
+                                <div class="col-md-12">
+                                    <div class="form-group mb-3">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Address for
+                                            Communication</label>
+                                        <textarea id="formAddress" class="form-control custom-input py-2" rows="2"
+                                            placeholder="Current Address" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Student Cell
+                                            No</label>
+                                        <input type="tel" id="formPhone" class="form-control custom-input py-2"
+                                            placeholder="Contact Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="small text-gold text-uppercase fw-bold mb-1">Parent Cell
+                                            No</label>
+                                        <input type="tel" id="formParentPhone" class="form-control custom-input py-2"
+                                            placeholder="Parent's Number">
+                                    </div>
+                                </div>
+
+                                <!-- Referral -->
+                                <div class="col-md-12">
+                                    <label class="small text-gold text-uppercase fw-bold mb-2 d-block">How did you know
+                                        about our college?</label>
+                                    <div class="d-flex flex-wrap gap-3 mb-3">
+                                        <div class="form-check small"><input class="form-check-input" type="radio"
+                                                name="referral" value="Website" id="refWeb"><label
+                                                class="form-check-label" for="refWeb">Website</label></div>
+                                        <div class="form-check small"><input class="form-check-input" type="radio"
+                                                name="referral" value="Friends" id="refFriend"><label
+                                                class="form-check-label" for="refFriend">Friends</label></div>
+                                        <div class="form-check small"><input class="form-check-input" type="radio"
+                                                name="referral" value="Relative" id="refRel"><label
+                                                class="form-check-label" for="refRel">Relative</label></div>
+                                        <div class="form-check small"><input class="form-check-input" type="radio"
+                                                name="referral" value="Social Media" id="refSocial"><label
+                                                class="form-check-label" for="refSocial">Social Media</label></div>
+                                        <div class="form-check small"><input class="form-check-input" type="radio"
+                                                name="referral" value="Newspaper" id="refNews"><label
+                                                class="form-check-label" for="refNews">Newspaper</label></div>
+                                        <div class="form-check small"><input class="form-check-input" type="radio"
+                                                name="referral" value="Other" id="refOther"><label
+                                                class="form-check-label" for="refOther">Other</label></div>
+                                    </div>
+                                    <input type="text" id="refDetail" class="form-control custom-input py-2"
+                                        placeholder="Specify Newspaper name or other details">
+                                </div>
+
                                 <div class="col-md-12 mt-4">
                                     <button type="submit"
                                         class="btn btn-dark w-100 py-3 text-uppercase fw-bold ls-wide luxe-btn">
-                                        Submit Application
+                                        Apply for Admission
                                     </button>
                                 </div>
                             </div>

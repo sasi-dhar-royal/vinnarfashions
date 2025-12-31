@@ -66,17 +66,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Get form values
             const name = document.getElementById('formName').value;
-            const phone = document.getElementById('formPhone').value;
+            const gender = document.getElementById('formGender').value;
+            const dob = document.getElementById('formDOB').value;
+            const father = document.getElementById('formFather').value;
+            const mother = document.getElementById('formMother').value || 'N/A';
+            const occupation = document.getElementById('formOccupation').value || 'N/A';
+            const income = document.getElementById('formIncome').value || 'N/A';
             const course = document.getElementById('formCourse').value;
-            const message = document.getElementById('formMessage').value;
+            const edu = document.getElementById('formEdu').value || 'N/A';
+            const lastStudied = document.getElementById('formLastStudied').value || 'N/A';
+            const address = document.getElementById('formAddress').value;
+            const studentPhone = document.getElementById('formPhone').value;
+            const parentPhone = document.getElementById('formParentPhone').value || 'N/A';
+
+            // Get Referral
+            const referralEl = document.querySelector('input[name="referral"]:checked');
+            const referral = referralEl ? referralEl.value : 'Not specified';
+            const refDetail = document.getElementById('refDetail').value || '';
 
             // WhatsApp Number & Message Formatting
             const targetPhoneNumber = "917799302224"; // India prefix + number
-            const whatsappMsg = `*New Admission Inquiry - Vinnar Institute*%0A%0A` +
+            const whatsappMsg = `*Vinnar Institute - New Admission Application*%0A%0A` +
+                `*--- Student Details ---*%0A` +
                 `*Name:* ${name}%0A` +
-                `*Phone:* ${phone}%0A` +
-                `*Interest:* ${course}%0A` +
-                `*Message:* ${message}`;
+                `*Gender:* ${gender}%0A` +
+                `*DOB:* ${dob}%0A` +
+                `*Interest:* ${course}%0A%0A` +
+                `*--- Family & Background ---*%0A` +
+                `*Father:* ${father}%0A` +
+                `*Mother:* ${mother}%0A` +
+                `*Occupation:* ${occupation}%0A` +
+                `*Annual Income:* ${income}%0A%0A` +
+                `*--- Academic Info ---*%0A` +
+                `*Qualification:* ${edu}%0A` +
+                `*Last Studied:* ${lastStudied}%0A%0A` +
+                `*--- Contact Info ---*%0A` +
+                `*Student Phone:* ${studentPhone}%0A` +
+                `*Parent Phone:* ${parentPhone}%0A` +
+                `*Address:* ${address}%0A%0A` +
+                `*--- Referral ---*%0A` +
+                `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}`;
 
             // Redirect to WhatsApp
             window.open(`https://wa.me/${targetPhoneNumber}?text=${whatsappMsg}`, '_blank');
