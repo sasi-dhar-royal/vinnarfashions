@@ -139,38 +139,74 @@ h4,
 }
 
 .nav-enquiry-blink {
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold) !important;
-    padding: 6px 15px !important;
+    background: linear-gradient(45deg, var(--gold), #f3cf6d);
+    border: none;
+    color: var(--black) !important;
+    padding: 8px 18px !important;
     border-radius: 50px;
-    font-weight: 700 !important;
-    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    font-size: 0.75rem !important;
     letter-spacing: 1px;
-    margin-left: 10px !important;
+    margin-left: 12px !important;
     margin-right: auto !important;
-    animation: nav-blink 1.5s infinite;
+    animation: gold-pulse 2s infinite ease-in-out;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-@keyframes nav-blink {
+.nav-enquiry-blink::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: rotate(30deg);
+    transition: none;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes gold-pulse {
     0% {
-        opacity: 1;
         transform: scale(1);
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
 
     50% {
-        opacity: 0.4;
         transform: scale(1.05);
-        color: var(--white) !important;
-        border-color: var(--white);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
     }
 
     100% {
-        opacity: 1;
         transform: scale(1);
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -60%;
+    }
+
+    20% {
+        left: 120%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+.nav-enquiry-blink:hover {
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.8);
+    filter: brightness(1.1);
 }
 
 .btn-enroll {
