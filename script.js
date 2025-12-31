@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}%0A` +
                 `*Note:* ${personalMsg}`;
 
-            // Redirect to WhatsApp
-            window.open(`https://wa.me/${targetPhoneNumber}?text=${whatsappMsg}`, '_blank');
+            // Redirect to WhatsApp (using location.href for better popup blocker compatibility)
+            window.location.href = `https://wa.me/${targetPhoneNumber}?text=${whatsappMsg}`;
 
             // Optional: Reset form
             enrollmentForm.reset();
