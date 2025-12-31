@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const referralEl = document.querySelector('input[name="referral"]:checked');
             const referral = referralEl ? referralEl.value : 'Not specified';
             const refDetail = document.getElementById('refDetail').value || '';
+            const personalMsg = document.getElementById('formMessage').value || 'N/A';
 
             // WhatsApp Number & Message Formatting
             const targetPhoneNumber = "917799302224"; // India prefix + number
@@ -104,8 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 `*Student Phone:* ${studentPhone}%0A` +
                 `*Parent Phone:* ${parentPhone}%0A` +
                 `*Address:* ${address}%0A%0A` +
-                `*--- Referral ---*%0A` +
-                `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}`;
+                `*--- Referral & Note ---*%0A` +
+                `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}%0A` +
+                `*Note:* ${personalMsg}`;
 
             // Redirect to WhatsApp
             window.open(`https://wa.me/${targetPhoneNumber}?text=${whatsappMsg}`, '_blank');
