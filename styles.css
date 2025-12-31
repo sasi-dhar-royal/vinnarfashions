@@ -138,6 +138,41 @@ h4,
     color: var(--gold) !important;
 }
 
+.nav-enquiry-blink {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold) !important;
+    padding: 6px 15px !important;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 1px;
+    margin-left: 10px !important;
+    margin-right: auto !important;
+    animation: nav-blink 1.5s infinite;
+    text-decoration: none;
+    display: inline-block;
+}
+
+@keyframes nav-blink {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.05);
+        color: var(--white) !important;
+        border-color: var(--white);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .btn-enroll {
     background: var(--gold);
     color: var(--black) !important;
