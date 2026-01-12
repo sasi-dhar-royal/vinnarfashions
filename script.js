@@ -58,11 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // 4. Enrollment Form WhatsApp Redirection
+    // 4. Enrollment Form WhatsApp Redirection & Google Sheet Storage
     const enrollmentForm = document.getElementById('enrollmentForm');
+
+    // PASTE YOUR GOOGLE SCRIPT URL HERE
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbjQjmP-0OSKAkhTnNsSJyuXOfmrEIHjBcnigoraKXDD0lcMAP_YBoeIIHy49A7vybvQ/exec";
+
     if (enrollmentForm) {
         enrollmentForm.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            const submitBtn = enrollmentForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.innerHTML = 'Saving Data... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
 
             // Get form values
             const name = document.getElementById('formName').value;
@@ -87,8 +98,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const refDetail = document.getElementById('refDetail').value || '';
             const personalMsg = document.getElementById('formMessage').value || 'N/A';
 
-            // WhatsApp Number & Message Formatting
-            const targetPhoneNumber = "917799302224"; // India prefix + number
+            // Prepare Data for Google Sheet (Keys match the headers you provided)
+            const formData = {
+                // System Fields
+                Timestamp: new Date().toLocaleString(),
+
+                // Personal Details
+                Name: name,
+                Contact: studentPhone, // Maps to 'Contact' column
+                Course: course,
+                Status: currentStatus,
+                Location: address, // Maps to 'Location' column
+                Date_of_Birth: dob,
+
+                // Parent Details
+                Father_Name: father,
+                Mother_Name: mother,
+                Occupation: occupation,
+
+                // Address & Phones (Your sheet has these specific columns)
+                Address: address,
+                "Student Phone": studentPhone,
+                "Parent Phone": parentPhone,
+
+                // Other Details
+                Referral: referral + (refDetail ? ` - ${refDetail}` : ''),
+
+                // Map extra fields to 'Note' or 'Message' since specific columns are missing
+                Note: `Edu: ${edu}, Last: ${lastStudied}, Income: ${income}`,
+                Message: personalMsg
+            };
+
+            // WhatsApp Logic
+            const targetPhoneNumber = "917799302224";
             const whatsappMsg = `*Vinnar Institute - New Admission Application*\n\n` +
                 `*--- Student Details ---*\n` +
                 `*Name:* ${name}\n` +
@@ -99,24 +141,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 `*Father:* ${father}\n` +
                 `*Mother:* ${mother}\n` +
                 `*Occupation:* ${occupation}\n` +
-                `*Annual Income:* ${income}\n\n` +
-                `*--- Academic Info ---*\n` +
+                `*Income:* ${income}\n\n` +
+                `*--- Education ---*\n` +
                 `*Qualification:* ${edu}\n` +
                 `*Last Studied:* ${lastStudied}\n\n` +
-                `*--- Contact Info ---*\n` +
-                `*Student Phone:* ${studentPhone}\n` +
-                `*Parent Phone:* ${parentPhone}\n` +
-                `*Address:* ${address}\n\n` +
-                `*--- Referral & Note ---*\n` +
-                `*Source:* ${referral} ${refDetail ? '(' + refDetail + ')' : ''}\n` +
-                `*Note:* ${personalMsg}`;
+                `*--- Contact ---*\n` +
+                `*Address:* ${address}\n` +
+                `*Student Mobile:* ${studentPhone}\n` +
+                `*Parent Mobile:* ${parentPhone}\n\n` +
+                `*--- Referral ---*\n` +
+                `*Source:* ${referral} ${refDetail ? `(${refDetail})` : ''}\n` +
+                `*Message:* ${personalMsg}`;
 
-            // Redirect to WhatsApp (using encodeURIComponent for full message reliability)
-            const finalUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(whatsappMsg)}`;
-            window.location.href = finalUrl;
+            const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(whatsappMsg)}`;
 
-            // Optional: Reset form
-            enrollmentForm.reset();
+            // Send to Google Sheet
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_GOOGLE_SCRIPT_URL_HERE") {
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                }).then(() => {
+                    // Success or Opaque response
+                    console.log("Data sent to sheet");
+                    window.open(whatsappUrl, '_blank');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    enrollmentForm.reset();
+                }).catch(err => {
+                    console.error("Error sending to sheet", err);
+                    // Open WhatsApp anyway even if storage fails
+                    window.open(whatsappUrl, '_blank');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            } else {
+                // If no URL configured yet, just open WhatsApp
+                console.warn("Google Script URL not set. Data not saved to sheet.");
+                window.open(whatsappUrl, '_blank');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
         });
     }
 });
