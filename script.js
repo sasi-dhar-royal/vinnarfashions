@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const enrollmentForm = document.getElementById('enrollmentForm');
 
     // PASTE YOUR GOOGLE SCRIPT URL HERE
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbjQjmP-0OSKAkhTnNsSJyuXOfmrEIHjBcnigoraKXDD0lcMAP_YBoeIIHy49A7vybvQ/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTx8VzLPjfyJWOiTwL_-MKoiL9bf6Q6cPXq7cskOie6dLCzeraetWK53BKEcSbReKW/exec";
 
     if (enrollmentForm) {
         enrollmentForm.addEventListener('submit', (e) => {
@@ -99,33 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const personalMsg = document.getElementById('formMessage').value || 'N/A';
 
             // Prepare Data for Google Sheet (Keys match the headers you provided)
+            // Prepare Data for Google Sheet (Keys match the headers you provided)
             const formData = {
-                // System Fields
                 Timestamp: new Date().toLocaleString(),
-
-                // Personal Details
                 Name: name,
-                Contact: studentPhone, // Maps to 'Contact' column
+                Contact: studentPhone,
                 Course: course,
                 Status: currentStatus,
-                Location: address, // Maps to 'Location' column
+                Location: address,
                 Date_of_Birth: dob,
-
-                // Parent Details
                 Father_Name: father,
                 Mother_Name: mother,
                 Occupation: occupation,
-
-                // Address & Phones (Your sheet has these specific columns)
-                Address: address,
-                "Student Phone": studentPhone,
-                "Parent Phone": parentPhone,
-
-                // Other Details
-                Referral: referral + (refDetail ? ` - ${refDetail}` : ''),
-
-                // Map extra fields to 'Note' or 'Message' since specific columns are missing
-                Note: `Edu: ${edu}, Last: ${lastStudied}, Income: ${income}`,
+                Income: income,
+                Education: edu,
+                Last_Inst: lastStudied,
+                Parent_Phone: parentPhone,
+                Referral: referral,
+                Ref_Detail: refDetail,
                 Message: personalMsg
             };
 
