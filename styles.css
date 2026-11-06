@@ -252,7 +252,11 @@ h4,
 }
 
 .hero-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.5;
     padding: 8px 16px;
     background: rgba(212, 175, 55, 0.15);
     border: 1px solid var(--gold);
@@ -432,6 +436,10 @@ h4,
 }
 
 @media (max-width: 991px) {
+    .hero-content-new .d-flex.flex-wrap {
+        justify-content: center;
+    }
+
     .hero-display-title {
         font-size: 4rem;
     }
@@ -1067,3 +1075,81 @@ footer .social-links a:hover {
         font-size: 24px;
     }
 }
+
+/* Affiliation & Recognition Section */
+.affiliation-section {
+    position: relative;
+    background: #0d0d0d;
+    color: #fff;
+    overflow: hidden;
+}
+
+.affiliation-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(212, 175, 55, 0.08) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    position: relative;
+}
+
+.affiliation-img-wrapper {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    display: inline-block;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    max-width: 380px;
+    width: 100%;
+}
+
+.affiliation-img-wrapper img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.affiliation-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.affiliation-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.affiliation-feature-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.1rem;
+}
+
+.affiliation-section .text-muted,
+.affiliation-card .text-muted {
+    color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.affiliation-card p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
